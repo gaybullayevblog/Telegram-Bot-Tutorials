@@ -15,7 +15,7 @@ from difflib import get_close_matches as gcm
 def checkWord(word, words=words):
     word = word.lower()
     matches = set(gcm(word, words))
-    available = False #Bunday so'z mavjud emas
+    available = False  # Bunday so'z mavjud emas
 
     if word in matches:
         available = True
@@ -24,12 +24,13 @@ def checkWord(word, words=words):
     elif 'ҳ' in word:
         word = word.replace('ҳ', 'x')
         matches.update(gcm(word, words))
-    
+
     elif 'х' in word:
         word = word.replace('х', 'ҳ')
         matches.update(gcm(word, words))
 
-    return {'available':available, 'matches':matches}
+    return {'available': available, 'matches': matches}
+
 
 if __name__ == '__main__':
     print(checkWord('хато'))
